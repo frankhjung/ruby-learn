@@ -11,6 +11,7 @@
 =end
 
 require 'rake/clean'
+require "bundler/gem_tasks"
 
 task :default => :test
 task :all => [:clean, :clobber, :bundle, :test, :doc]
@@ -47,10 +48,5 @@ task :doc do
   system 'rdoc --all --op doc --tab-width=4 Gemfile Rakefile lib/*.rb tests/*.rb'
 end
 
-desc 'Package Learn Gem'
-task :package do
-  system 'gem build Learn.gemspec'
-end
-
 CLEAN.include('**/*.bak', '**/*~')
-CLOBBER.include('doc/')
+CLOBBER.include('doc/', 'pkg')
