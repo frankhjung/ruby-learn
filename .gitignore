@@ -1,0 +1,7 @@
+*~
+*.bak
+doc/
+*.gem
+Gemfile.lock
+*.html
+target/
