@@ -1,23 +1,18 @@
 #!/usr/bin/env ruby
 
-# Module of test classes
+# Module of test classes.
+require 'version'
+
+# Learn module
 module Learn
   # Module version
-  module Version
-    # major
-    MAJOR = 0
-    # minor
-    MINOR = 1
-    # path
-    PATCH = 0
-  end
-  # Module Version
-  VERSION = [Version::MAJOR, Version::MINOR, Version::PATCH].compact * '.'
+  Version.current
+  is_versioned
 
   # Test public and private class variables
   class ClassVariables
-    # Class version inherited from module
-    VERSION = [Version::MAJOR, Version::MINOR, Version::PATCH].compact * '.'
+    # Class version
+    is_versioned
 
     # Public varible
     attr_writer :anyone

@@ -1,17 +1,13 @@
 #!/usr/bin/env ruby
 
-# RUBY HINTS
-# Alternate declaration for relative class is
-#   require File.expand_path('../lib/Learn.rb', File.dirname(__FILE__))
-# Or
-#   require_relative 'lib/Learn'
-
-require './lib/Learn.rb'
+# Test Learn module components.
+require_relative '../lib/learn'
 require 'tempfile'
 require 'minitest'
 require 'minitest/autorun'
 require 'uri'
 require 'uri/http'
+require 'version'
 
 # Test Ruby scripts. This is a Ruby Learning project.
 #
@@ -88,11 +84,18 @@ class TestLearn < Minitest::Test
 
   # Should have module and class version set
   def test_module_version
-    assert_equal('0.1.0', Learn::VERSION)
-    assert_equal(0, Learn::Version::MAJOR)
-    assert_equal(1, Learn::Version::MINOR)
-    assert_equal(0, Learn::Version::PATCH)
-    assert_equal('0.1.0', Learn::ClassVariables::VERSION)
+    # module
+    assert_equal('0.1.0', Learn::VERSION.to_s)
+    assert_equal('0', Learn::VERSION.major)
+    assert_equal('1', Learn::VERSION.minor)
+    assert_equal('0', Learn::VERSION.revision)
+    assert_equal(%w(0 1 0), Learn::VERSION.to_a)
+    # class
+    assert_equal('0.1.0', Learn::ClassVariables::VERSION.to_s)
+    assert_equal('0', Learn::ClassVariables::VERSION.major)
+    assert_equal('1', Learn::ClassVariables::VERSION.minor)
+    assert_equal('0', Learn::ClassVariables::VERSION.revision)
+    assert_equal(%w(0 1 0), Learn::ClassVariables::VERSION.to_a)
   end
 
   # Should be able to access public methods
