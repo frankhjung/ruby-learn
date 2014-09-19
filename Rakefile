@@ -21,12 +21,13 @@ task :help do
   puts "Can we generate an array of Ruby scripts automatically?"
 end
 
-desc 'Update Gems'
-task :bundle do
+desc 'Update Gem bundles'
+task :update do
   system 'bundle check'
   system 'bundle install'
   system 'bundle update'
   system 'bundle list'
+  system 'gem list --local'
 end
 
 desc 'Check syntax'
@@ -46,7 +47,7 @@ task :doc do
   system 'rdoc --all --op doc --tab-width=4 Gemfile Rakefile lib/*.rb tests/*.rb'
 end
 
-desc 'Package Gem'
+desc 'Package Learn Gem'
 task :package do
   system 'gem build Learn.gemspec'
 end
