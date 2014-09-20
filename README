@@ -1,0 +1,28 @@
+= ruby-learn
+
+Ruby make file for Learn project.
+
+== Notes
+
+=== Version updates
+
+When bumping the version with +version+:+bump+, ensure you update tests as well.
+
+Read version from project +VERSION+ file.
+
+== References
+
+* {Unit Testing}[http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing]
+* {Rake (software)}[http://en.wikipedia.org/wiki/Rake_(software)]
+* {Rake (gem)}[https://rubygems.org/gems/rake]
+* {Rake hints}[http://pastie.org/242691]
+* {Rakefile}[http://www.ruby-doc.org/core-1.9.3/doc/rake/rakefile_rdoc.html]
+
+=== Gems
+
+Gems used in this project are:
+
+* Rubucop[https://github.com/bbatsov/rubocop=end]
+* MiniTest[https://github.com/seattlerb/minitest]
+* Version[https://github.com/stouset/version]
+

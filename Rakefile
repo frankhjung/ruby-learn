@@ -1,18 +1,3 @@
-#!/usr/bin/rake
-
-=begin
-
-Ruby make file for Learn project.
-
-==References
-
-* http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing
-* http://en.wikipedia.org/wiki/Rake_(software)
-* https://rubygems.org/gems/rake
-* http://www.ruby-doc.org/core-1.9.3/doc/rake/rakefile_rdoc.html
-* http://pastie.org/242691
-=end
-
 require 'rake/clean'
 require 'bundler/gem_tasks'
 require 'rake/version_task'
@@ -54,27 +39,11 @@ end
 
 desc 'Document project'
 task :doc do
-  system "rdoc --all --op=doc --tab-width=4 Gemfile Learn.gemspec Rakefile VERSION #{srcs}"
-end
-
-spec = Gem::Specification.new do |s|
-  s.name          = 'Learn'
-  s.version       = Learn::VERSION
-  s.authors       = ['Frank Jung']
-  s.email         = ['frankhjung@linux.com']
-  s.summary       = %q{Learn Ruby}
-  s.description   = %q{A project to help me Learn Ruby.}
-  s.homepage      = 'http://members.iinet.net.au/~frankjung/'
-  s.license       = 'GPLv2'
-  s.files         = ['lib/learn.rb']
-  s.executables   = ['']
-  s.test_files    = ['tests/test_learn.rb']
-  s.require_paths = ['lib']
+  system "rdoc --all --output doc --main README -x README.md -x bin/learn"
 end
 
 Rake::VersionTask.new do |task|
   task.with_git_tag = true
-  task.with_gemspec = spec
 end
 
 CLEAN.include('**/*.bak', '**/*~')

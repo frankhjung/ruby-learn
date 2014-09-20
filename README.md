@@ -1,5 +1,4 @@
-ruby-test
-=========
+# ruby-learn
 
 This is an example Ruby project I am using to learn:
 
@@ -8,4 +7,4 @@ This is an example Ruby project I am using to learn:
 * how to unit test
 * how to use Gems and Bundles
 * how to produce Ruby documentation
-
+* how to use version gem to manage project

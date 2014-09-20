@@ -1,10 +1,7 @@
-# coding: utf-8
-
-# Read version from project VERSION file.
 require File.expand_path('lib/version', File.dirname(__FILE__))
 
-# lib = File.expand_path('lib', File.dirname(__FILE__))
-# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+lib = File.expand_path('lib', File.dirname(__FILE__))
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name          = 'Learn'

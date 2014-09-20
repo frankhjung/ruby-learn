@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 # Module of test classes.
+# Author:: Frank Jung
+# License:: see LICENSE
 require 'version'
 
 # Learn module
@@ -11,9 +13,6 @@ module Learn
 
   # Test public and private class variables
   class ClassVariables
-    # Class version
-    is_versioned
-
     # Public varible
     attr_writer :anyone
     attr_accessor :anyone

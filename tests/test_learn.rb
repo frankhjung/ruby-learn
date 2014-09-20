@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 # Test Learn module components.
+# Author:: Frank Jung
+# License:: see LICENSE
 require_relative '../lib/learn'
 require 'tempfile'
 require 'minitest'
@@ -11,13 +13,15 @@ require 'version'
 
 # Test Ruby scripts. This is a Ruby Learning project.
 #
-# Tested with Ruby version:
+# = References
 #
-# * tested on ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux].
+# * Tested with:
 #
-# MiniTest:
+#   ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux].
 #
-# * https://github.com/seattlerb/minitest
+# * MiniTest:
+#
+#   https://github.com/seattlerb/minitest
 #
 class TestLearn < Minitest::Test
   # URI - site
@@ -33,7 +37,7 @@ class TestLearn < Minitest::Test
 
   # Test directory globbing.
   #
-  # References:
+  # == References
   #
   # * http://www.ruby-doc.org/stdlib-1.9.3/libdoc/tempfile/rdoc/Tempfile.html
   # * http://ruby-doc.org/core-1.9.3/Dir.html
@@ -52,7 +56,7 @@ class TestLearn < Minitest::Test
   # * test: http://members.iinet.net.au/~frankjung
   # * test: http://members.iinet.net.au/~frankjung/index.html
   #
-  # References:
+  # == References
   #
   # * http://ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI.html
   def test_uri_path_joins
@@ -70,7 +74,7 @@ class TestLearn < Minitest::Test
   #
   # * test: http://members.iinet.net.au/~frankjung/index.html
   #
-  # Reference:
+  # == References
   #
   # * http://ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI/HTTP.html
   def test_uri_http_build
@@ -85,17 +89,11 @@ class TestLearn < Minitest::Test
   # Should have module and class version set
   def test_module_version
     # module
-    assert_equal('0.1.0', Learn::VERSION.to_s)
+    assert_equal('0.2.0', Learn::VERSION.to_s)
     assert_equal('0', Learn::VERSION.major)
-    assert_equal('1', Learn::VERSION.minor)
+    assert_equal('2', Learn::VERSION.minor)
     assert_equal('0', Learn::VERSION.revision)
-    assert_equal(%w(0 1 0), Learn::VERSION.to_a)
-    # class
-    assert_equal('0.1.0', Learn::ClassVariables::VERSION.to_s)
-    assert_equal('0', Learn::ClassVariables::VERSION.major)
-    assert_equal('1', Learn::ClassVariables::VERSION.minor)
-    assert_equal('0', Learn::ClassVariables::VERSION.revision)
-    assert_equal(%w(0 1 0), Learn::ClassVariables::VERSION.to_a)
+    assert_equal(%w(0 2 0), Learn::VERSION.to_a)
   end
 
   # Should be able to access public methods
