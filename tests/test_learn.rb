@@ -89,11 +89,14 @@ class TestLearn < Minitest::Test
   # Should have module and class version set
   def test_module_version
     # module
-    assert_equal('0.2.0', Learn::VERSION.to_s)
-    assert_equal('0', Learn::VERSION.major)
-    assert_equal('2', Learn::VERSION.minor)
-    assert_equal('0', Learn::VERSION.revision)
-    assert_equal(%w(0 2 0), Learn::VERSION.to_a)
+    version_filename = File.expand_path('../VERSION', File.dirname(__FILE__))
+    version = IO.read(version_filename).chomp
+    assert_equal(version, Learn::VERSION.to_s)
+    version_array = version.split('.')
+    assert_equal(version_array, Learn::VERSION.to_a)
+    assert_equal(version_array[0], Learn::VERSION.major)
+    assert_equal(version_array[1], Learn::VERSION.minor)
+    assert_equal(version_array[2], Learn::VERSION.revision)
   end
 
   # Should be able to access public methods

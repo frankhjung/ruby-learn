@@ -8,7 +8,6 @@ task :all => [:clean, :clobber, :build, :test, :doc]
 
 tests = FileList.new('tests/test_*.rb')
 srcs = FileList.new('lib/*.rb', tests)
-Rake::VersionTask.new
 
 desc 'Show help'
 task :help do
