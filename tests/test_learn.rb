@@ -33,7 +33,7 @@ class TestLearn < Minitest::Test
   # URI - ISP site
   ISP = 'http://' + IINET
   # URI - path seperator
-  SEP = '/'
+  SEP = File::SEPARATOR
 
   # Test directory globbing.
   #
