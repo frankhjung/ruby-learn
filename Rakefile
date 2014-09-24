@@ -1,19 +1,22 @@
 require 'rake/clean'
 require 'bundler/gem_tasks'
 require 'rake/version_task'
-# require 'rubocop/rake_task'
 require File.expand_path('lib/version', File.dirname(__FILE__))
 
 task :default => :test
 task :all => [:clean, :clobber, :build, :test, :doc]
 
 tests = FileList.new('tests/test_*.rb')
-srcs = FileList.new('lib/*.rb', tests)
+srcs = FileList.new('lib/*.rb') + tests
 
 desc 'Show help'
 task :help do
-  puts "Show help.\nFor Rakefile help call:\n\trake -D\n"
-  puts "Can we generate an array of Ruby scripts automatically?"
+  puts 'For Rakefile help call:'
+  puts '  rake -D'
+  puts 'or'
+  puts '  rake -T'
+  system 'rvm list'
+  system 'gem list --local'
 end
 
 desc 'Update Gem bundles'
@@ -21,8 +24,7 @@ task :update do
   system 'bundle check'
   system 'bundle install'
   system 'bundle update'
-  system 'bundle list'
-  system 'gem list --local'
+  system 'bundle list --verbose'
 end
 
 desc 'Check syntax'
