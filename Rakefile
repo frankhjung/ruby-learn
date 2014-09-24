@@ -1,6 +1,7 @@
 require 'rake/clean'
 require 'bundler/gem_tasks'
 require 'rake/version_task'
+# require 'rubocop/rake_task'
 require File.expand_path('lib/version', File.dirname(__FILE__))
 
 task :default => :test
@@ -26,8 +27,7 @@ end
 
 desc 'Check syntax'
 task :check do
-  system 'bundle check'
-  ruby "-c -w #{srcs}"
+  ruby "-c #{srcs}"
   system "rubocop #{srcs}"
 end
 

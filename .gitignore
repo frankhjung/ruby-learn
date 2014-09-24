@@ -4,4 +4,5 @@ doc/
 *.gem
 Gemfile.lock
 *.html
+.*.swp
 target/
