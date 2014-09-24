@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Ruby build script that will:
+#
+# * prepare gem set
+# * update bundles
+# * invoke rake
+
 # prepare version of Ruby environment
 RVM_GEMSET=$(cat .ruby-version .ruby-gemset | tr "\\n" "@" | sed 's/@$//')
 echo "Using ${RVM_GEMSET} gemset ..."
