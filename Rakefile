@@ -1,6 +1,7 @@
 require 'rake/clean'
 require 'bundler/gem_tasks'
 require 'rake/version_task'
+require 'rubocop/rake_task'
 require File.expand_path('lib/version', File.dirname(__FILE__))
 
 task default: :test
@@ -33,13 +34,24 @@ task :update do
 end
 
 desc 'Check syntax'
-task :check do
+task check: :rubocop do
   ruby "-c #{srcs}"
-  system "rubocop Rakefile #{srcs}"
+end
+
+desc 'Run RuboCop over project'
+RuboCop::RakeTask.new(:rubocop) do |task|
+  # files to check
+  task.patterns = srcs
+  # show failures in simple format
+  task.formatters = ['simple']
+  # continue on finding errors
+  task.fail_on_error = false
+  # show it working
+  task.verbose = true
 end
 
 desc 'Run unit tests'
-task test: [:check] do
+task test: :check do
   ruby "#{tests}"
 end
 

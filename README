@@ -17,6 +17,7 @@ Read version from project +VERSION+ file.
 * {Rake (gem)}[https://rubygems.org/gems/rake]
 * {Rake hints}[http://pastie.org/242691]
 * {Rakefile}[http://www.ruby-doc.org/core-1.9.3/doc/rake/rakefile_rdoc.html]
+* {RubCop Rakefile integration}[https://github.com/bbatsov/rubocop#rake-integration]
 
 === Gems
 
