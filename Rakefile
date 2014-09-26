@@ -14,15 +14,24 @@ desc 'Show help'
 task :help do
   puts <<HELP
 For Rakefile help call:
-
   rake -D
 
 Or
-
   rake -T
+
+To cleanup unused Gems use:
+
+  bundle clean --force -V 
 HELP
+  puts 'Showing RVM information ...'
+  system 'rvm info'
   system 'rvm list'
+  puts 'Showing Bundle information ...'
+  system 'bundle list'
+  puts 'Showing Gem information ...'
   system 'gem list --local'
+  puts 'Showing stale gems ...'
+  system 'gem stale'
 end
 
 desc 'Update Gem bundles'
