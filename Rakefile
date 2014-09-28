@@ -16,27 +16,24 @@ task :help do
   puts <<HELP
 For Rakefile help call:
   rake -D
-
 Or
   rake -T
-
 To cleanup unused Gems use:
   bundle clean --force -V 
-
 HELP
 end
 
 desc 'Show bundle and Gem information'
 task :info do
-  puts 'Showing RVM information ...'
-  system 'rvm info'
-  system 'rvm list'
-  puts 'Showing Bundle information ...'
-  system 'bundle list'
-  puts 'Showing Gem information ...'
-  system 'gem list --local'
+  # showing RVM information:
+  # system 'rvm info'
+  # system 'rvm list'
+  # showing Gem information:
+  # system 'gem list --local'
   system 'gem environment'
-  puts 'Showing stale gems ...'
+  # showing bundle information
+  system 'bundle list'
+  puts 'Showing stale gems:'
   system 'gem stale'
 end
 
@@ -81,7 +78,7 @@ RDoc::Task.new do |rdoc|
   rdoc.rdoc_files.include('LICENSE')
   rdoc.rdoc_files.include('tests/*.rb')
   rdoc.rdoc_files.include('VERSION')
-  rdoc.title = ENV['title'] || "Ruby Learning Project"
+  rdoc.title = ENV['title'] || 'Ruby Learning Project'
 end
 
 Rake::VersionTask.new do |task|
