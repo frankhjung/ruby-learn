@@ -35,6 +35,7 @@ task :info do
   system 'bundle list'
   puts 'Showing Gem information ...'
   system 'gem list --local'
+  system 'gem environment'
   puts 'Showing stale gems ...'
   system 'gem stale'
 end

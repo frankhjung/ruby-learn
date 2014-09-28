@@ -26,7 +26,7 @@ Read version from project <tt>VERSION</tt> file.
 
 Gems used in this project are:
 
-* Rubucop[https://github.com/bbatsov/rubocop=end]
-* MiniTest[https://github.com/seattlerb/minitest]
-* Version[https://github.com/stouset/version]
+* {Rubucop}[https://github.com/bbatsov/rubocop=end]
+* {MiniTest}[https://github.com/seattlerb/minitest]
+* {Version}[https://github.com/stouset/version]
 

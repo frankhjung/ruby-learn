@@ -1,5 +1,11 @@
 =Changelog
 
+==0.4.1
+
+* move gemspecs from Gemfile into Learn gemspec
+* cleanup unused gems
+* info task now shows gem environment
+
 ==0.4.0
 
 * use rdoc rake task
