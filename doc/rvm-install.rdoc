@@ -1,0 +1,117 @@
+= Install RVM (Ruby Version Manager)
+
+Ruby[https://www.ruby-lang.org/] is used to manage and verify {Go
+CD}[http://www.go.cd/] configuration. It also uses RVM to manage Ruby
+dependencies. Installing Cygwin[https://www.cygwin.com/] was not an option (for
+all sorts of reasons), so these are my instructions to get RVM working for Go CD
+on {Debian Linux}[https://www.debian.org/].
+
+== Installation
+
+Follow this install guide for RVM stable with Ruby, (this requires cURL):
+
+  $ curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+== Configuration
+
+Check your installation with command:
+
+  $ source ~/.rvm/scripts/rvm
+
+Test configuration with command:
+
+  $ type rvm | head -n 1
+  rvm is a function
+
+Good, everything is installed correctly.
+
+To see system version of Ruby run:
+
+  $ rvm use system
+  Now using system ruby.
+
+  $ ruby -v
+  ruby 1.9.3p194 (2012-04-20 revision 35410) [x86_64-linux]
+
+  $ which ruby
+  /usr/bin/ruby
+
+To see the default version of Ruby used by RVM run:
+
+  $ ruby -v
+  ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-linux]
+
+  $ which ruby
+  /home/frank/.rvm/rubies/ruby-2.1.2/bin/ruby
+
+To list available gemsets (and show which one is currently active, use:
+
+  go-server-config$ rvm gemset list
+  gemsets for ruby-1.9.3-p374 (found in /home/frank/.rvm/gems/ruby-1.9.3-p374)
+  (default)
+  global
+  => go-server-config
+  ib2b-aux-service-limiter-rules
+  ruby-learn
+
+== Dependencies
+
+Not all dependencies were installed for Go. I had to manually install: some
+additional Debian packages:
+
+  $ sudo apt-get install ruby-nokogiri
+  $ sudo apt-get install libxslt1-dev libxml2-dev
+
+And manually this Ruby Gem
+nokogiri[http://nokogiri.org/tutorials/installing_nokogiri.html] with:
+
+  $ gem install nokogiri -v '1.4.4'
+
+Everything else happened as part of the RVM session. See Gemfile
+
+== Test - validate configuration
+
+Now we can finally run Go CD validation:
+
+  go-server-config$ ./go -v validate
+  using ruby-1.9.3-p374@go-server-config gemset
+  Using /home/frank/.rvm/gems/ruby-1.9.3-p374 with gemset go-server-config
+  WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.9.1
+  /home/frank/public/nbnco/dev/go-server-config/lib/tasks/validate.rb:5: warning: already initialized constant VERIFY_PEER
+  validating fake.devbuild.xml
+  Got build/fake.devbuild.xml
+  Go config file build/fake.devbuild.xml seems OK
+
+Source your Ruby Gems
+
+Use source (in your <tt>Gemfile</tt>) of:
+
+  source 'http://nexus.nbnco.net.au/content/groups/rubygems'
+
+== Version your Ruby
+
+Put required Ruby version into <tt>.ruby-version</tt>
+
+  ruby-1.9.3-p374
+
+== Name you Ruby Gemset
+
+A name for your projects Gemset into <tt>.ruby-gemset</tt>
+
+  go-server-config
+
+== Validate your Ruby with RuboCop
+
+While you can check Ruby scripts with:
+
+  ruby -c -w *.rb
+
+There is a far more complete tool called RuboCop. This is a Ruby static code
+analyser, based on the community Ruby style guide. To use it is simple:
+
+  rubocop *.rb
+
+You can also customise it using a YAML configuration file <tt>.rubocop.yml</tt>
+
+  Style/FileName:
+    Enabled: false

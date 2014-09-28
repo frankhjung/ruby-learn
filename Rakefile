@@ -1,5 +1,6 @@
-require 'rake/clean'
 require 'bundler/gem_tasks'
+require 'rake/clean'
+require 'rdoc/task'
 require 'rake/version_task'
 require 'rubocop/rake_task'
 require File.expand_path('lib/version', File.dirname(__FILE__))
@@ -20,9 +21,13 @@ Or
   rake -T
 
 To cleanup unused Gems use:
-
   bundle clean --force -V 
+
 HELP
+end
+
+desc 'Show bundle and Gem information'
+task :info do
   puts 'Showing RVM information ...'
   system 'rvm info'
   system 'rvm list'
@@ -34,20 +39,20 @@ HELP
   system 'gem stale'
 end
 
-desc 'Update Gem bundles'
-task :update do
+desc 'Check all Gem installed'
+task :check do
   system 'bundle check'
   system 'bundle install'
-  system 'bundle update'
+  # system 'bundle update'
   system 'bundle list --verbose'
 end
 
-desc 'Check syntax'
-task check: :rubocop do
+desc 'Check syntax using standard Ruby'
+task syntax: :rubocop do
   ruby "-c #{srcs}"
 end
 
-desc 'Run RuboCop over project'
+desc 'Check project with RuboCop'
 RuboCop::RakeTask.new(:rubocop) do |task|
   # files to check
   task.patterns = srcs
@@ -65,8 +70,17 @@ task test: :check do
 end
 
 desc 'Document project'
-task :doc do
-  system 'rdoc --all --output doc --main README -x README.md -x bin/learn'
+RDoc::Task.new do |rdoc|
+  rdoc.main = 'README.md'
+  rdoc.options << '--all'
+  rdoc.rdoc_dir = 'rdocs'
+  rdoc.rdoc_files.include('CHANGES')
+  rdoc.rdoc_files.include('doc/*.rdoc')
+  rdoc.rdoc_files.include('lib/*.rb')
+  rdoc.rdoc_files.include('LICENSE')
+  rdoc.rdoc_files.include('tests/*.rb')
+  rdoc.rdoc_files.include('VERSION')
+  rdoc.title = ENV['title'] || "Ruby Learning Project"
 end
 
 Rake::VersionTask.new do |task|
@@ -74,4 +88,4 @@ Rake::VersionTask.new do |task|
 end
 
 CLEAN.include('**/*.bak', '**/*~')
-CLOBBER.include('doc/', 'pkg/')
+CLOBBER.include('rdocs/', 'pkg/')

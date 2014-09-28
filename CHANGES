@@ -1,5 +1,20 @@
 =Changelog
 
+==0.4.0
+
+* use rdoc rake task
+* use rubocop rake task
+* use here documents for multi-line help
+* show more information in help task
+* added RVM installation notes 
+
+==0.3.0
+
+* added rdoc run as task as system command
+* refactor build script
+* use Ruby constant for file separator
+* set execution bit on Ruby scripts
+
 ==0.2.0
 
 * added use of version Gem

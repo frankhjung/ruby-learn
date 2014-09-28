@@ -6,9 +6,10 @@ Ruby make file for Learn project.
 
 === Version updates
 
-When bumping the version with +version+:+bump+, ensure you update tests as well.
+When bumping the version with <tt>version:bump</tt>, ensure you update tests as
+well.
 
-Read version from project +VERSION+ file.
+Read version from project <tt>VERSION</tt> file.
 
 == References
 
@@ -17,6 +18,8 @@ Read version from project +VERSION+ file.
 * {Rake (gem)}[https://rubygems.org/gems/rake]
 * {Rake hints}[http://pastie.org/242691]
 * {Rakefile}[http://www.ruby-doc.org/core-1.9.3/doc/rake/rakefile_rdoc.html]
+* {Rake RDoc Task}[http://apidock.com/ruby/RDoc/Task]
+* {RDoc}[http://rdoc.sourceforge.net/doc/]
 * {RubCop Rakefile integration}[https://github.com/bbatsov/rubocop#rake-integration]
 
 === Gems
