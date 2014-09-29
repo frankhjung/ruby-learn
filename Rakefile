@@ -7,7 +7,7 @@ require File.expand_path('lib/version', File.dirname(__FILE__))
 
 task default: :test
 task cleanall: [:clean, :clobber]
-task all: [:clean, :clobber, :test, :doc, :build]
+task all: [:clean, :clobber, :test, :rdoc, :build]
 
 tests = FileList.new('tests/test_*.rb')
 srcs = FileList.new('lib/*.rb') + tests
@@ -64,22 +64,22 @@ RuboCop::RakeTask.new(:rubocop) do |task|
 end
 
 desc 'Run unit tests'
-task test: :check do
+task test: :syntax do
   ruby "#{tests}"
 end
 
 desc 'Document project'
-RDoc::Task.new do |rdoc|
-  rdoc.main = 'README.md'
-  rdoc.options << '--all'
-  rdoc.rdoc_dir = 'rdocs'
-  rdoc.rdoc_files.include('CHANGES')
-  rdoc.rdoc_files.include('doc/*.rdoc')
-  rdoc.rdoc_files.include('lib/*.rb')
-  rdoc.rdoc_files.include('LICENSE')
-  rdoc.rdoc_files.include('tests/*.rb')
-  rdoc.rdoc_files.include('VERSION')
-  rdoc.title = ENV['title'] || 'Ruby Learning Project'
+RDoc::Task.new(:rdoc) do |task|
+  task.main = 'README.md'
+  task.options << '--all'
+  task.rdoc_dir = 'rdocs'
+  task.rdoc_files.include('CHANGES')
+  task.rdoc_files.include('doc/*.rdoc')
+  task.rdoc_files.include('lib/*.rb')
+  task.rdoc_files.include('LICENSE')
+  task.rdoc_files.include('tests/*.rb')
+  task.rdoc_files.include('VERSION')
+  task.title = ENV['title'] || 'Ruby Learning Project'
 end
 
 Rake::VersionTask.new do |task|
