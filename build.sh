@@ -7,14 +7,20 @@
 # * invoke rake
 
 # prepare version of Ruby environment
-RVM_GEMSET=$(cat .ruby-version .ruby-gemset | tr "\\n" "@" | sed 's/@$//')
-echo "Using ${RVM_GEMSET} gemset ..."
-[[ -s "${HOME}/.rvm/scripts/rvm" ]] && . "${HOME}/.rvm/scripts/rvm"
-[[ -s /usr/local/rvm/scripts/rvm ]] && . /usr/local/rvm/scripts/rvm
-rvm --create --install use ${RVM_GEMSET}
+[[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
+[[ -s /usr/local/rvm/scripts/rvm ]] && source /usr/local/rvm/scripts/rvm
+if [[ -f .ruby-version && -f .ruby-gemset ]]; then 
+    RVM_GEMSET=$(cat .ruby-version .ruby-gemset | tr "\\n" "@" | sed 's/@$//')
+fi
+if [[ -z "${RVM_GEMSET}" ]]; then
+    echo "ERROR: no valid ruby gemset specified: ${RVM_GEMSET}"
+    exit
+else
+    rvm --create --install use ${RVM_GEMSET}
+fi
 
 # prepare bundler
-export BUNDLE_GEMFILE=${PWD}/Gemfile
+export BUNDLE_GEMFILE=Gemfile
 which bundle | grep ${RVM_GEMSET} >/dev/null || gem install bundler --no-rdoc --no-ri
 bundle check >/dev/null || bundle install
 

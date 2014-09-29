@@ -6,7 +6,8 @@ require 'rubocop/rake_task'
 require File.expand_path('lib/version', File.dirname(__FILE__))
 
 task default: :test
-task all: [:clean, :clobber, :build, :test, :doc]
+task cleanall: [:clean, :clobber]
+task all: [:clean, :clobber, :test, :doc, :build]
 
 tests = FileList.new('tests/test_*.rb')
 srcs = FileList.new('lib/*.rb') + tests
