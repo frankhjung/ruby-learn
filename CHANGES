@@ -1,5 +1,12 @@
 =Changelog
 
+==HEAD
+
+* loop through tests, do not run ruby checker
+* fix generation of rdoc and add syntax checks to test task
+* add more checks when setting rvm gemset start looking at bundler
+* show more interesting information
+
 ==0.4.1
 
 * move gemspecs from Gemfile into Learn gemspec
