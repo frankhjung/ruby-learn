@@ -39,16 +39,11 @@ task :info do
 end
 
 desc 'Check all Gem installed'
-task :check do
+task :bundles do
   system 'bundle check'
   system 'bundle install'
   # system 'bundle update'
   system 'bundle list --verbose'
-end
-
-desc 'Check syntax using standard Ruby'
-task syntax: :rubocop do
-  ruby "-c #{srcs}"
 end
 
 desc 'Check project with RuboCop'
@@ -64,8 +59,10 @@ RuboCop::RakeTask.new(:rubocop) do |task|
 end
 
 desc 'Run unit tests'
-task test: :syntax do
-  ruby "#{tests}"
+task test: :rubocop do
+  tests.each do |test|
+    ruby "#{test}"
+  end
 end
 
 desc 'Document project'
