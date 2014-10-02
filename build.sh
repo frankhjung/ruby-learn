@@ -14,7 +14,6 @@
 rvm --create --install use ${RVM_GEMSET}
 
 # prepare bundler
-export BUNDLE_GEMFILE=Gemfile
 which bundle | grep ${RVM_GEMSET} >/dev/null || gem install bundler --no-rdoc --no-ri
 bundle check >/dev/null || bundle install
 

@@ -7,7 +7,7 @@ require File.expand_path('lib/version', File.dirname(__FILE__))
 
 task default: :test
 task cleanall: [:clean, :clobber]
-task all: [:clean, :clobber, :test, :rdoc, :build]
+task all: [:clean, :clobber, :check, :test, :build]
 
 tests = FileList.new('tests/test_*.rb')
 srcs = FileList.new('lib/*.rb') + tests
@@ -27,7 +27,7 @@ end
 desc 'Show bundle and Gem information'
 task :info do
   # showing RVM information:
-  # system 'rvm info'
+  system 'rvm info'
   # system 'rvm list'
   # showing Gem information:
   # system 'gem list --local'
@@ -38,7 +38,7 @@ task :info do
   system 'gem stale'
 end
 
-desc 'Check all Gem installed'
+desc 'Install bundles'
 task :bundles do
   system 'bundle check'
   system 'bundle install'
@@ -46,8 +46,8 @@ task :bundles do
   system 'bundle list --verbose'
 end
 
-desc 'Check project with RuboCop'
-RuboCop::RakeTask.new(:rubocop) do |task|
+desc 'Check project syntax with RuboCop'
+RuboCop::RakeTask.new(:check) do |task|
   # files to check
   task.patterns = srcs
   # show failures in simple format
@@ -59,14 +59,14 @@ RuboCop::RakeTask.new(:rubocop) do |task|
 end
 
 desc 'Run unit tests'
-task test: :rubocop do
+task :test do
   tests.each do |test|
     ruby "#{test}"
   end
 end
 
 desc 'Document project'
-RDoc::Task.new(:rdoc) do |task|
+RDoc::Task.new(:doc) do |task|
   task.main = 'README.md'
   task.options << '--all'
   task.rdoc_dir = 'rdocs'
