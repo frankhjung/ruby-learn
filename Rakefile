@@ -10,7 +10,7 @@ task cleanall: [:clean, :clobber]
 task all: [:clean, :clobber, :check, :test, :build]
 
 tests = FileList.new('tests/test_*.rb')
-srcs = FileList.new('lib/*.rb') + tests
+srcs = FileList.new('lib/*.rb')
 
 desc 'Show help'
 task :help do
@@ -20,7 +20,7 @@ For Rakefile help call:
 Or
   rake -T
 To cleanup unused Gems use:
-  bundle clean --force -V 
+  bundle clean --force -V
 HELP
 end
 
@@ -49,8 +49,8 @@ end
 desc 'Check project syntax with RuboCop'
 RuboCop::RakeTask.new(:check) do |task|
   # files to check
-  task.patterns = srcs
-  # show failures in simple format
+  task.patterns = ['Rakefile'] + srcs + tests
+  # report format: simple, progress, files, offenses, clang, disabled
   task.formatters = ['simple']
   # continue on finding errors
   task.fail_on_error = false
