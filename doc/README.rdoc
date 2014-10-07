@@ -30,3 +30,5 @@ Gems used in this project are:
 * {MiniTest}[https://github.com/seattlerb/minitest]
 * {Version}[https://github.com/stouset/version]
 
+For more information on Gems see {Ruby Gems command
+reference}[http://guides.rubygems.org/command-reference/]
