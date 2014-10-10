@@ -19,6 +19,8 @@ For Rakefile help call:
   rake -D
 Or
   rake -T
+To show Ruby environment use:
+  rake info
 To cleanup unused Gems use:
   bundle clean --force -V
 HELP
