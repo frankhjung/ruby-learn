@@ -3,7 +3,7 @@ require 'rake/clean'
 require 'rdoc/task'
 require 'rake/version_task'
 require 'rubocop/rake_task'
-require File.expand_path('lib/version', File.dirname(__FILE__))
+require_relative 'lib/version'
 
 task default: :test
 task cleanall: [:clean, :clobber]
