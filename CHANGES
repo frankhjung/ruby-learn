@@ -2,6 +2,10 @@
 
 ==HEAD
 
+==0.4.2
+
+* syntax check all ruby files
+* replace README.md as rdoc understood by Github
 * loop through tests, do not run ruby checker
 * fix generation of rdoc and add syntax checks to test task
 * add more checks when setting rvm gemset start looking at bundler
