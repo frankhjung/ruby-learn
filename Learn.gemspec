@@ -1,28 +1,23 @@
-require File.expand_path('lib/version', File.dirname(__FILE__))
+# needed for Learn::VERSION
+require File.expand_path('lib/learn', File.dirname(__FILE__))
 
-# http://ruby-doc.com/docs/ProgrammingRuby/
-# lib = File.expand_path('lib', File.dirname(__FILE__))
-# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
-Gem::Specification.new do |spec|
-  spec.name          = 'Learn'
-  spec.version       = Learn::VERSION
-  spec.authors       = ['Frank Jung']
-  spec.email         = ['frankhjung@linux.com']
-  spec.summary       = %q{Learn Ruby}
-  spec.description   = %q{A project to help learn Ruby.}
-  spec.homepage      = 'https://github.com/frankhjung'
-  spec.license       = 'GPLv2'
-  spec.files         = %x(git ls-files).split($/)
-  spec.executables   = ['']
-  spec.test_files    = ['tests/test_learn.rb']
-  spec.require_paths = ['lib']
-  spec.platform      = Gem::Platform::RUBY
-
-  spec.add_dependency 'version', '>=1.0'
-
-  spec.add_development_dependency 'bundler', '~>1.7'
-  spec.add_development_dependency 'minitest', '~>5.4'
-  spec.add_development_dependency 'rake', '~>10.3'
-  spec.add_development_dependency 'rubocop', '~>0.26'
+Gem::Specification.new do |s|
+  s.name          = 'Learn'
+  s.version       = Learn::VERSION
+  s.authors       = ['Frank Jung']
+  s.email         = ['frankhjung@linux.com']
+  s.summary       = %q(Learn Ruby)
+  s.description   = %q(A project to help learn Ruby.)
+  s.homepage      = 'https://github.com/frankhjung'
+  s.license       = 'GPLv2'
+  s.files         = %x(git ls-files).split($/)
+  s.executables   = ['']
+  s.test_files    = ['tests/test_learn.rb']
+  s.require_paths = ['lib']
+  s.platform      = Gem::Platform::RUBY
+  s.add_dependency 'version', '>=1.0'
+  s.add_development_dependency 'bundler', '~>1.7'
+  s.add_development_dependency 'minitest', '~>5.4'
+  s.add_development_dependency 'rake', '~>10.3'
+  s.add_development_dependency 'rubocop', '~>0.26'
 end

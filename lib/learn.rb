@@ -7,16 +7,17 @@ require 'version'
 
 # Learn module
 module Learn
-  # Module version
+  # This module is versioned
   Version.current
   is_versioned
 
   # Test public and private class variables
   class ClassVariables
-    # Public varible
+    # Public varibles
     attr_writer :anyone
     attr_accessor :anyone
-    # Private variable
+
+    # Private variables
     attr_reader :secret
 
     private :secret

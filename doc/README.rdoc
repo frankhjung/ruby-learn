@@ -13,22 +13,22 @@ Read version from project <tt>VERSION</tt> file.
 
 == References
 
-* {Unit Testing}[http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing]
-* {Rake (software)}[http://en.wikipedia.org/wiki/Rake_(software)]
+* {Bundler Getting Started}[http://bundler.io/#getting-started]
+* {Rakefile}[http://www.ruby-doc.org/core-1.9.3/doc/rake/rakefile_rdoc.html]
 * {Rake (gem)}[https://rubygems.org/gems/rake]
 * {Rake hints}[http://pastie.org/242691]
-* {Rakefile}[http://www.ruby-doc.org/core-1.9.3/doc/rake/rakefile_rdoc.html]
 * {Rake RDoc Task}[http://apidock.com/ruby/RDoc/Task]
+* {Rake (software)}[http://en.wikipedia.org/wiki/Rake_(software)]
 * {RDoc}[http://rdoc.sourceforge.net/doc/]
 * {RubCop Rakefile integration}[https://github.com/bbatsov/rubocop#rake-integration]
+* {Unit Testing}[http://en.wikibooks.org/wiki/Ruby_Programming/Unit_testing]
 
 === Gems
 
 Gems used in this project are:
 
-* {Rubucop}[https://github.com/bbatsov/rubocop=end]
 * {MiniTest}[https://github.com/seattlerb/minitest]
+* {Rubucop}[https://github.com/bbatsov/rubocop=end]
 * {Version}[https://github.com/stouset/version]
 
-For more information on Gems see {Ruby Gems command
-reference}[http://guides.rubygems.org/command-reference/]
+For more information on Gems see {Ruby Gems command reference}[http://guides.rubygems.org/command-reference/]

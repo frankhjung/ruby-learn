@@ -3,11 +3,10 @@ require 'rake/clean'
 require 'rdoc/task'
 require 'rake/version_task'
 require 'rubocop/rake_task'
-require_relative 'lib/version'
 
 task default: :test
 task cleanall: [:clean, :clobber]
-task all: [:clean, :clobber, :check, :test, :build]
+task all: [:cleanall, :clobber, :check, :test, :build]
 
 tests = FileList.new('tests/test_*.rb')
 srcs = FileList.new('lib/*.rb')
