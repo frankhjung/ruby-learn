@@ -5,6 +5,9 @@
 # * prepare gem set
 # * update bundles
 # * invoke rake
+#
+# To debug this script use
+# set -x
 
 # prepare ruby version for this environment
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"
