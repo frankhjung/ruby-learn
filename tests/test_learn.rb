@@ -87,8 +87,8 @@ class TestLearn < Minitest::Test
   end
 
   # Should have module and class version set
+  # rubocop:disable Metrics/AbcSize
   def test_module_version
-    # module
     version_filename = File.expand_path('../VERSION', File.dirname(__FILE__))
     version = IO.read(version_filename).chomp
     assert_equal(version, Learn::VERSION.to_s)

@@ -7,7 +7,7 @@
 # * invoke rake
 #
 # To debug this script use
-# set -x
+# set -v
 
 # prepare ruby version for this environment
 [[ -s "${HOME}/.rvm/scripts/rvm" ]] && source "${HOME}/.rvm/scripts/rvm"

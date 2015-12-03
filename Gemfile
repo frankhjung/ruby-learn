@@ -1,8 +1,8 @@
-#ruby=ruby-1.9.3-p374
-#ruby-gemset=ruby-learn
+# .ruby-version: ruby-2.2.1
+# .ruby-gemset: ruby-learn
 
+# external source
 source 'https://rubygems.org'
-#source 'http://nexus.nbnco.net.au/content/groups/rubygems'
 
-# Using gems in Learn.gemspec
+# using gems in Learn.gemspec
 gemspec
