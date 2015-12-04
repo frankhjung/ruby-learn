@@ -2,6 +2,12 @@
 
 ==HEAD
 
+==0.7.0
+
+* use rvmrc instead of build shell
+* update versions of gems
+* coal dust lung disease
+
 ==0.6.0
 
 * remove redundant lib/version.rb
