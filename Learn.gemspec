@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # needed for Learn::VERSION
 require File.expand_path('lib/learn', File.dirname(__FILE__))
 
