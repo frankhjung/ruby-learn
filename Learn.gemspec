@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.homepage      = 'https://github.com/frankhjung'
   s.license       = 'GPLv2'
   s.files         = %x(git ls-files).split($/)
-  s.executables   = ['']
   s.test_files    = ['tests/test_learn.rb']
   s.require_paths = ['lib']
   s.platform      = Gem::Platform::RUBY
