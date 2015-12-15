@@ -28,15 +28,15 @@ end
 desc 'Show bundle and Gem information'
 task :info do
   # showing RVM information:
-  system 'rvm info'
+  sh %(rvm info)
   # system 'rvm list'
   # showing Gem information:
-  # system 'gem list --local'
-  system 'gem environment'
+  # sh %Q{gem list}
+  # sh %Q{gem environment}
   # showing bundle information
-  system 'bundle list'
-  puts 'Showing stale gems:'
-  system 'gem stale'
+  sh %(bundle list)
+  # puts 'Showing stale gems:'
+  # sh %Q{gem stale}
 end
 
 desc 'Install bundles'
