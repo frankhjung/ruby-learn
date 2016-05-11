@@ -19,7 +19,7 @@ gem install version
 
 * List options
 <code>
-./build.sh -D
+./build.sh -T
 </code>
 
 === Version updates
