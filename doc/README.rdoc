@@ -10,17 +10,17 @@ This is an example Ruby project I am using to learn:
 <code>
 RVM_GEMSET=$(cat .ruby-version .ruby-gemset | tr "\\n" "@" | sed 's/@$//')
 rvm --create --install use ${RVM_GEMSET}
-<code>
+</code>
 
 * Ensure version gem is installed
 <code>
 gem install version
-<code>
+</code>
 
 * List options
 <code>
 ./build.sh -D
-<code>
+</code>
 
 === Version updates
 
