@@ -46,13 +46,9 @@ To see the default version of Ruby used by RVM run:
 
 To list available gemsets (and show which one is currently active, use:
 
-  go-server-config$ rvm gemset list
+  $ rvm gemset list
   gemsets for ruby-1.9.3-p374 (found in /home/frank/.rvm/gems/ruby-1.9.3-p374)
   (default)
-  global
-  => go-server-config
-  ib2b-aux-service-limiter-rules
-  ruby-learn
 
 == Dependencies
 
