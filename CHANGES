@@ -2,6 +2,10 @@
 
 ==HEAD
 
+==0.8.1
+
+* cleanup documentation
+
 ==0.8.0
 
 * remove bin as not executable Gem
