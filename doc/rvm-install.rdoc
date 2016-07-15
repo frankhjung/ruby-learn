@@ -69,25 +69,6 @@ nokogiri[http://nokogiri.org/tutorials/installing_nokogiri.html] with:
 
 Everything else happened as part of the RVM session. See Gemfile
 
-== Test - validate configuration
-
-Now we can finally run Go CD validation:
-
-  go-server-config$ ./go -v validate
-  using ruby-1.9.3-p374@go-server-config gemset
-  Using /home/frank/.rvm/gems/ruby-1.9.3-p374 with gemset go-server-config
-  WARNING: Nokogiri was built against LibXML version 2.8.0, but has dynamically loaded 2.9.1
-  /home/frank/public/nbnco/dev/go-server-config/lib/tasks/validate.rb:5: warning: already initialized constant VERIFY_PEER
-  validating fake.devbuild.xml
-  Got build/fake.devbuild.xml
-  Go config file build/fake.devbuild.xml seems OK
-
-Source your Ruby Gems
-
-Use source (in your <tt>Gemfile</tt>) of:
-
-  source 'http://nexus.nbnco.net.au/content/groups/rubygems'
-
 == Version your Ruby
 
 Put required Ruby version into <tt>.ruby-version</tt>
