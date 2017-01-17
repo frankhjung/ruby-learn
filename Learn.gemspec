@@ -1,4 +1,5 @@
 # coding: utf-8
+# frozen_string_literal: true
 
 # needed for Learn::VERSION
 require File.expand_path('lib/learn', File.dirname(__FILE__))
@@ -17,8 +18,8 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.platform      = Gem::Platform::RUBY
   s.add_dependency 'version', '>=1.0'
-  s.add_development_dependency 'bundler', '~>1.10'
-  s.add_development_dependency 'minitest', '~>5.8'
-  s.add_development_dependency 'rake', '~>10.4'
-  s.add_development_dependency 'rubocop', '~>0.35'
+  s.add_development_dependency 'bundler', '~>1.13'
+  s.add_development_dependency 'minitest', '~>5.10'
+  s.add_development_dependency 'rake', '~>12.0'
+  s.add_development_dependency 'rubocop', '~>0.47'
 end

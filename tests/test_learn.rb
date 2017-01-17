@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # Test Learn module components.
 # Author:: Frank Jung
@@ -47,7 +48,7 @@ class TestLearn < Minitest::Test
     tempname = tempfile.path
     assert(1 == Dir.glob(tempname).length, "expected #{tempname}")
     tempfile.close!
-    assert(0 == Dir.glob(tempname).length, "unexpected #{tempname}")
+    assert(Dir.glob(tempname).length.zero?, "unexpected #{tempname}")
   end
 
   # Test URI paths:

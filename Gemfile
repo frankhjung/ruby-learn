@@ -1,4 +1,5 @@
-#ruby=2.2.1
+# frozen_string_literal: true
+#ruby=2.3.3
 #ruby-gemset=ruby-learn
 
 # external source

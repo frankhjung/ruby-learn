@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'bundler/gem_tasks'
 require 'rake/clean'
 require 'rdoc/task'
@@ -62,7 +63,7 @@ end
 desc 'Run unit tests'
 task :test do
   tests.each do |test|
-    ruby "#{test}"
+    ruby test.to_s
   end
 end
 
