@@ -44,9 +44,9 @@ class TestLearn < Minitest::Test
   # * http://ruby-doc.org/core-1.9.3/Dir.html
   # * http://www.ruby-doc.org/core-1.9.3/File.html
   def test_dir_glob
-    tempfile = Tempfile.new(%w(temp txt))
+    tempfile = Tempfile.new(%w[temp txt])
     tempname = tempfile.path
-    assert(1 == Dir.glob(tempname).length, "expected #{tempname}")
+    assert(Dir.glob(tempname).length, "expected #{tempname}" == 1)
     tempfile.close!
     assert(Dir.glob(tempname).length.zero?, "unexpected #{tempname}")
   end
@@ -87,13 +87,17 @@ class TestLearn < Minitest::Test
     assert_equal([ISP, HOME, HOMEPAGE].join(SEP), iinet.to_s)
   end
 
-  # Should have module and class version set
-  # rubocop:disable Metrics/AbcSize
-  def test_module_version
+  # get version as string
+  def _get_version
     version_filename = File.expand_path('../VERSION', File.dirname(__FILE__))
     version = IO.read(version_filename).chomp
     assert_equal(version, Learn::VERSION.to_s)
-    version_array = version.split('.')
+    version.split('.')
+  end
+
+  # Should have module and class version set
+  def test_module_version
+    version_array = _get_version
     assert_equal(version_array, Learn::VERSION.to_a)
     assert_equal(version_array[0], Learn::VERSION.major)
     assert_equal(version_array[1], Learn::VERSION.minor)

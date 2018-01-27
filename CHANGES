@@ -2,6 +2,10 @@
 
 ==HEAD
 
+==0.10.0
+
+* update ruby gems
+
 ==0.9.0
 
 * build using ruby 2.3.3

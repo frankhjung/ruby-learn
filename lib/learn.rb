@@ -15,7 +15,7 @@ module Learn
   # Test public and private class variables
   class ClassVariables
     # Public varibles
-    attr_writer :anyone
+    # attr_writer :anyone
     attr_accessor :anyone
 
     # Private variables
