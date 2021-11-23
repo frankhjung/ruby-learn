@@ -15,16 +15,16 @@ srcs = FileList.new('lib/*.rb')
 
 desc 'Show help'
 task :help do
-  puts <<HELP
-  For Rakefile help call:
-    rake -D
-  Or
-    rake -T
-  To show Ruby environment use:
-    rake info
-  To cleanup unused Gems use:
-    bundle clean --force -V
-HELP
+  puts <<~HELP
+    For Rakefile help call:
+      rake -D
+    Or
+      rake -T
+    To show Ruby environment use:
+      rake info
+    To cleanup unused Gems use:
+      bundle clean --force -V
+  HELP
 end
 
 desc 'Show bundle and Gem information'

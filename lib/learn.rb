@@ -16,7 +16,10 @@ module Learn
   class ClassVariables
     # Public varibles
     # attr_writer :anyone
+    attr_writer :anyone
+    # rubocop:disable Lint/DuplicateMethods
     attr_accessor :anyone
+    # rubocop:enable Lint/DuplicateMethods
 
     # Private variables
     attr_reader :secret

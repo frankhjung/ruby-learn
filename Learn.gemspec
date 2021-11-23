@@ -18,8 +18,8 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.platform      = Gem::Platform::RUBY
   s.add_dependency 'version', '>=1.1'
-  s.add_development_dependency 'bundler', '~>1.16'
-  s.add_development_dependency 'minitest', '~>5.11'
-  s.add_development_dependency 'rake', '~>12.3'
-  s.add_development_dependency 'rubocop', '~>0.52'
+  s.add_development_dependency 'bundler', '>=2.2.10'
+  s.add_development_dependency 'minitest', '>=5.10'
+  s.add_development_dependency 'rake', '>=12.0'
+  s.add_development_dependency 'rubocop', '>=0.47'
 end

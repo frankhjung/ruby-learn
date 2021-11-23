@@ -14,7 +14,7 @@
 rvm --create --install use ${RVM_GEMSET}
 
 # prepare bundler
-which bundle | grep ${RVM_GEMSET} >/dev/null || gem install bundler --no-rdoc --no-ri
+which bundle | grep ${RVM_GEMSET} >/dev/null || gem install bundler
 bundle check >/dev/null || bundle install
 
 # run rake with parameters

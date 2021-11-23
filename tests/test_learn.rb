@@ -32,7 +32,7 @@ class TestLearn < Minitest::Test
   # URI - host
   IINET = 'members.iinet.net.au'
   # URI - ISP site
-  ISP = 'http://' + IINET
+  ISP = "http://#{IINET}"
   # URI - path seperator
   SEP = File::SEPARATOR
 
@@ -47,6 +47,7 @@ class TestLearn < Minitest::Test
     tempfile = Tempfile.new(%w[temp txt])
     tempname = tempfile.path
     assert(Dir.glob(tempname).length, "expected #{tempname}" == 1)
+    assert(Dir.glob(tempname).length == 1, "expected #{tempname}")
     tempfile.close!
     assert(Dir.glob(tempname).length.zero?, "unexpected #{tempname}")
   end
@@ -90,7 +91,7 @@ class TestLearn < Minitest::Test
   # get version as string
   def _get_version
     version_filename = File.expand_path('../VERSION', File.dirname(__FILE__))
-    version = IO.read(version_filename).chomp
+    version = File.read(version_filename).chomp
     assert_equal(version, Learn::VERSION.to_s)
     version.split('.')
   end
