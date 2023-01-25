@@ -19,6 +19,7 @@ require 'version'
 # * Tested with:
 #
 #   ruby 1.9.3p484 (2013-11-22 revision 43786) [x86_64-linux].
+#   ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 #
 # * MiniTest:
 #
@@ -116,7 +117,6 @@ class TestLearn < Minitest::Test
   # No access to private class variables or methods
   def test_private_variable
     mytest = Learn::ClassVariables.new
-    mytest.anyone = 'public'
     assert_raises NoMethodError do
       mytest.secret
     end

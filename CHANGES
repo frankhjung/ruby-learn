@@ -2,13 +2,19 @@
 
 ==HEAD
 
+==0.11.0
+
+* update ruby to 3.2.1
+* update ruby gems
+* fix rubocop issues
+
 ==0.10.0
 
 * update ruby gems
 
 ==0.9.0
 
-* build using ruby 2.3.3
+* update ruby to 2.3.3
 
 ==0.8.1
 
@@ -53,7 +59,7 @@
 * use rubocop rake task
 * use here documents for multi-line help
 * show more information in help task
-* added RVM installation notes 
+* added RVM installation notes
 
 ==0.3.0
 
