@@ -32,7 +32,7 @@ class TestLearn < Minitest::Test
   # URI - host
   IINET = 'members.iinet.net.au'
   # URI - ISP site
-  ISP = "http://#{IINET}"
+  ISP = "http://#{IINET}".freeze
   # URI - path seperator
   SEP = File::SEPARATOR
 
@@ -49,7 +49,7 @@ class TestLearn < Minitest::Test
     assert(Dir.glob(tempname).length, "expected #{tempname}" == 1)
     assert(Dir.glob(tempname).length == 1, "expected #{tempname}")
     tempfile.close!
-    assert(Dir.glob(tempname).length.zero?, "unexpected #{tempname}")
+    assert(Dir.glob(tempname).empty?, "unexpected #{tempname}")
   end
 
   # Test URI paths:
@@ -81,7 +81,7 @@ class TestLearn < Minitest::Test
   # * http://ruby-doc.org/stdlib-1.9.3/libdoc/uri/rdoc/URI/HTTP.html
   def test_uri_http_build
     path = ['', HOME, HOMEPAGE].join(SEP)
-    iinet = URI::HTTP.build(host: IINET, path: path)
+    iinet = URI::HTTP.build(host: IINET, path:)
     assert_equal(IINET, iinet.host)
     assert_equal(80, iinet.port)
     assert_equal(path, iinet.path)

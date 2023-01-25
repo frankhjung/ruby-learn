@@ -26,6 +26,10 @@ gem install rake
 gem install rubocop
 gem install version
 </code>
+Can also run:
+<code>
+./build.sh bundles
+</code>
 
 * List gems
 <code>
