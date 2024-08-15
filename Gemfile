@@ -9,7 +9,7 @@ source 'https://rubygems.org'
 # gemspec
 
 gem 'version', '~> 1.1'
-gem 'bundler', '~> 2.4'
+gem 'bundler', '~> 2.5'
 gem 'minitest', '~> 5.17'
 gem 'rake', '~> 13.0'
 gem 'rubocop', '~> 1.44'
